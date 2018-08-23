@@ -17,19 +17,20 @@ test_data = iris.data[test_idx]
 clf = tree.DecisionTreeClassifier()
 clf = clf.fit(train_data, train_target)
 
-# graph
-from sklearn.externals.six import StringIO
-import pydotplus
-
-dot_data = StringIO()
-tree.export_graphviz(clf, out_file=dot_data,
-                     feature_names=iris.feature_names,
-                     class_names=iris.target_names,
-                     filled=True, rounded=True,
-                     impurity=False)
-graph = pydotplus.graph_from_dot_data(dot_data.getvalue())
-graph.write_pdf("iris.pdf")
+# # graph - decision dree visualization
+# from sklearn.externals.six import StringIO
+# import pydotplus
+#
+# dot_data = StringIO()
+# tree.export_graphviz(clf, out_file=dot_data,
+#                      feature_names=iris.feature_names,
+#                      class_names=iris.target_names,
+#                      filled=True, rounded=True,
+#                      impurity=False)
+# graph = pydotplus.graph_from_dot_data(dot_data.getvalue())
+# graph.write_pdf("iris.pdf")
 
 # predict
-print(test_target)
+print("Features %s, names %s" % (iris.feature_names, iris.target_names))
+print(test_data[1], test_target[1])
 print(clf.predict(test_data))
