@@ -5,4 +5,3 @@ labels = [0, 0, 1, 1]
 clf = tree.DecisionTreeClassifier()
 clf = clf.fit(features, labels)
 print(clf.predict([[160, 0]]))
-ā
